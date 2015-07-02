@@ -25,7 +25,9 @@ require.config({
     'sourcemap': 'lib/sourcemap',
     'tooltipster': 'lib/tooltipster/js/jquery.tooltipster',
     'ZeroClipboard': 'lib/zeroclipboard/ZeroClipboard',
-    'html2canvas': 'lib/html2canvas'
+    'html2canvas': 'lib/html2canvas',
+    'ES6Promise': 'lib/es6-promise',
+    'punycode': 'lib/punycode'
   },
   shim: {
     'tooltipster': {
@@ -35,10 +37,6 @@ require.config({
     'see': {
       deps: ['jquery'],
       exports: 'see'
-    },
-    'html2canvas': {
-      deps: [],
-      exports: 'html2canvas'
     }
   }
 });

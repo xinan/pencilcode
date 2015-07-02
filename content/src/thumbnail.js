@@ -7,20 +7,18 @@ define([
 
   // Public functions
   var thumbnail = {
-    generateThumbnailDataUrl: function(iframe) {
-      return new Promise(function(resolve, reject) {
-        // Get the canvas inside the iframe.
-        var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-        var turtlefield = innerDoc.getElementsByClassName('turtlefield')[1];
-        if (turtlefield) {
-          html2canvas(turtlefield, { onrendered: onRendered });
-        } else {
-          html2canvas(innerDoc.body, { onrendered: onRendered });
-        }
-        function onRendered(canvas) {
-          resolve(getImageDataUrl(canvas, getImageInfo(canvas)));
-        }
-      });
+    generateThumbnailDataUrl: function(iframe, callback) {
+      // Get the canvas inside the iframe.
+      var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      var turtlefield = innerDoc.getElementsByClassName('turtlefield')[1];
+      if (turtlefield) {
+        html2canvas(turtlefield, { onrendered: onRendered });
+      } else {
+        html2canvas(innerDoc.body, { onrendered: onRendered });
+      }
+      function onRendered(canvas) {
+        callback(getImageDataUrl(canvas, getImageInfo(canvas)));
+      }
     }
   }
 

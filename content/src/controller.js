@@ -601,7 +601,7 @@ view.on('saveas', saveAs);
 view.on('screenshot',function() {
   var iframe = document.getElementById('output-frame');
   // `thumbnail.generateThumbnailDataUrl` returns a promise.
-  thumbnail.generateThumbnailDataUrl(iframe).then(function(thumbnailDataUrl) {
+  thumbnail.generateThumbnailDataUrl(iframe, function(thumbnailDataUrl) {
     modelatpos('right').thumbnail = thumbnailDataUrl;
     updateTopControls();
     view.flashThumbnail(thumbnailDataUrl);
@@ -777,7 +777,7 @@ function saveAction(forceOverwrite, loginPrompt, doneCallback) {
     } else {  // Otherwise generate one.
       var iframe = document.getElementById('output-frame');
       // `thumbnail.generateThumbnailDataUrl` returns a promise.
-      thumbnail.generateThumbnailDataUrl(iframe).then(postThumbnailGeneration);
+      thumbnail.generateThumbnailDataUrl(iframe, postThumbnailGeneration);
     }
   } else {  // Empty content, file delete, no need for thumbnail.
     postThumbnailGeneration('');
