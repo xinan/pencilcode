@@ -80,6 +80,19 @@ module.exports = function(grunt) {
         }
       }
     },
+    browserify: {
+      dist: {
+        files: {
+          'content/editor.js': 'content/src/editor-main.js'
+        },
+        options: {
+          browserifyOptions: {
+              debug: true
+          },
+          watch: true
+        }
+      }
+    },
     requirejs: {
       compile: {
         options: {
