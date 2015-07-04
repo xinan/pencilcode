@@ -58,7 +58,7 @@
     "codescan": "./content/src/codescan.js",
     "controller": "./content/src/controller.js",
     "debug": "./content/src/debug.js",
-    "draw-protactor": "./content/src/draw-protactor.js",
+    "draw-protractor": "./content/src/draw-protractor.js",
     "droplet": "./content/lib/droplet.js",
     "FontLoader": "./content/src/FontLoader.js",
     "filetype": "./content/src/filetype.js",
